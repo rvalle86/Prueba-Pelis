@@ -1,0 +1,24 @@
+<h2>Sección Individual</h2>
+
+<div class="row">
+  <div class="col">
+    <div class="card" style="width: 18rem">
+      <img
+        *ngIf="img.backdrops != null"
+        [src]="'https://image.tmdb.org/t/p/w500/' + img.backdrops[0].file_path"
+        class="card-img-top"
+        alt=""
+      />
+      <div class="card-body">
+        <h4 class="card-title">{{ movie.original_title }}</h4>
+        <h5 class="card-subtitle mb-2 text-muted" *ngIf="movie.genres != null">
+          {{ movie.genres[0].name }},
+          {{ movie.genres[1].name }}
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ movie.status }}</h6>
+
+        <small class="card-text">{{ movie.overview }}</small>
+      </div>
+    </div>
+  </div>
+</div>

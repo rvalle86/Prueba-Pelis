@@ -1,0 +1,31 @@
+<!-- <div
+  *ngIf="movies.length === 0; else table"
+  class="alert alert-warning text-center"
+>
+  No hay Películas que mostrar
+</div>
+
+<ng-template #table>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Título Original</th>
+        <th>Fecha de Estreno</th>
+        <th>Sinopsis</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td></td>
+        <td>{{ movies.values }}</td>
+        <td>{{ movie.overview }}</td>
+        <td>
+          <a [routerLink]="['/movies/by']">Info</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template> -->
