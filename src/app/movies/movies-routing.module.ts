@@ -5,6 +5,7 @@ import { MoviesTableComponent } from './components/movies-table/movies-table.com
 import { ByGeneralPageComponent } from './pages/by-general-page/by-general-page.component';
 import { ByIdComponent } from './pages/by-id/by-id.component';
 import { ByCastComponent } from './pages/by-cast/by-cast.component';
+import { ByReviewsComponent } from './pages/by-reviews/by-reviews.component';
 
 const routes: Routes = [
   {
@@ -15,12 +16,10 @@ const routes: Routes = [
   {
     path: 'by/:id',
     component: ByIdComponent,
-    children: [
-      {
-        path: 'by/:idcast',
-        component: ByCastComponent,
-      },
-    ],
+  },
+  {
+    path: 'by/:id/reviews',
+    component: ByReviewsComponent,
   },
   // {
   //   path: 'by/cast:id',

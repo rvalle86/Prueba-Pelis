@@ -24,7 +24,7 @@ export class ByCastComponent implements OnInit {
 
   searchByCast(): void {
     this.activatedRoute.params
-      .pipe(switchMap(({ id }) => this.MoviesService.searchCatByCode(id)))
+      .pipe(switchMap(({ id }) => this.MoviesService.searchCastByCode(id)))
       .subscribe((cast) => {
         if (!cast) return this.router.navigateByUrl('');
         console.log(cast);

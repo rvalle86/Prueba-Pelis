@@ -1,0 +1,54 @@
+<h2>Reviews del Momento</h2>
+
+<div class="row">
+  <div class="col">
+    <hr />
+
+    <div
+      *ngIf="reviews.length === 0; else table"
+      class="alert alert-warning text-center"
+    >
+      No hay Reviews que mostrar
+    </div>
+
+    <ng-template #table>
+      <table class="table table-hover">
+        <thead class="text-center">
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Resumen</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let review of reviews; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <small>{{ review.author }}</small>
+            </td>
+            <td>{{ review.created_at | date : "MMMM dd, yyyy" }}</td>
+            <td>
+              <small>{{
+                review.content.length > 30
+                  ? (review.content | slice : 0 : 30) + "..."
+                  : review.content
+              }}</small>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-success btn-sm">
+                <!-- <a
+                  [routerLink]="['/movies/by', movie.id]"
+                  style="text-decoration: none; color: inherit"
+                  >Info</a
+                > -->Más Detalle
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </div>
+</div>

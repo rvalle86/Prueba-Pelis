@@ -25,13 +25,22 @@
           Sitio: <a href="{{ movie.homepage }}" target="_blank"> Web</a>
         </h6>
 
-        <div class="d-grid gap-2">
+        <div class="d-grid gap-2 m-2">
           <button
             (click)="onPress()"
             class="btn btn-outline-success"
             type="button"
           >
             <a>Conocer al Elenco</a>
+          </button>
+        </div>
+        <div class="d-grid gap-2 m-2">
+          <button class="btn btn-primary" type="button">
+            <a
+              [routerLink]="['/movies/by', movie.id, 'reviews']"
+              style="text-decoration: none; color: inherit"
+              >Reseñas</a
+            >
           </button>
         </div>
         <hr />
