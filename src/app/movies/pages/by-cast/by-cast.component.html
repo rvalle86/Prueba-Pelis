@@ -1,0 +1,22 @@
+<div ngfor class="card">
+  <h2 class="text-center">Elenco</h2>
+
+  <div class="row">
+    <div
+      *ngFor="let item of cast | keyvalue; let i = index"
+      class="col-4 h-100 text-center"
+    >
+      <img
+        class="card-img"
+        [src]="'https://image.tmdb.org/t/p/w500/' + cast.cast[i].profile_path"
+        alt="Card image cap"
+      />
+
+      <div class="card-body">
+        <h6 class="card-text text-center">
+          {{ cast.cast[i].name }}
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>

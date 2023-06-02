@@ -15,6 +15,7 @@ export class ByIdComponent implements OnInit {
   public movies: Movie[] = [];
   public movie: MovieResponse = {} as MovieResponse;
   public img: ImagesResponse = {} as ImagesResponse;
+  display = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -41,9 +42,15 @@ export class ByIdComponent implements OnInit {
       .pipe(switchMap(({ id }) => this.MoviesService.searchMovieByCode(id)))
       .subscribe((movie) => {
         if (!movie) return this.router.navigateByUrl('');
-        console.log(movie);
 
         return (this.movie = movie);
       });
+  }
+
+  onPress() {
+    //this.display = true;
+
+    //To toggle the component
+    this.display = !this.display;
   }
 }

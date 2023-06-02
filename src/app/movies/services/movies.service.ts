@@ -4,6 +4,7 @@ import { catchError, Observable, of, map } from 'rxjs';
 import { Movie, MoviesResponse } from '../interfaces/movies';
 import { ImagesResponse } from '../interfaces/movie-images.interface';
 import { MovieResponse } from '../interfaces/by-id.interface';
+import { CastResponse } from '../interfaces/movie-cast.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -44,6 +45,14 @@ export class MoviesService {
     const params = new HttpParams().set('api_key', this.apiKey);
 
     return this.http.get<MovieResponse>(url, { params: params });
+  }
+
+  searchCatByCode(id: number): Observable<CastResponse> {
+    const url = `${this.apiUrl}/${id}/credits`;
+
+    const params = new HttpParams().set('api_key', this.apiKey);
+
+    return this.http.get<CastResponse>(url, { params: params });
   }
 
   searchMovies(): Observable<MoviesResponse> {
