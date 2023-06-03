@@ -27,7 +27,6 @@ export class ByCastComponent implements OnInit {
       .pipe(switchMap(({ id }) => this.MoviesService.searchCastByCode(id)))
       .subscribe((cast) => {
         if (!cast) return this.router.navigateByUrl('');
-        console.log(cast);
 
         return (this.cast = cast);
       });

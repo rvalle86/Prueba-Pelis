@@ -17,7 +17,7 @@
           <tr>
             <th>#</th>
             <th>Título Original</th>
-            <th>Fecha de Estreno</th>
+            <th>Estreno</th>
             <th>Sinopsis</th>
             <th></th>
           </tr>
@@ -25,10 +25,12 @@
         <tbody>
           <tr *ngFor="let movie of movies; let i = index">
             <td>{{ i + 1 }}</td>
-            <td>
+            <td class="text-center">
               <small>{{ movie.original_title }}</small>
             </td>
-            <td>{{ movie.release_date | date : "MMMM dd, yyyy" }}</td>
+            <td class="text-center">
+              {{ movie.release_date | date : "MMMM dd, yyyy" }}
+            </td>
             <td>
               <small>{{ movie.overview }}</small>
             </td>

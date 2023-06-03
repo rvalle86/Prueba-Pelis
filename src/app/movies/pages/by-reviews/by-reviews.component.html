@@ -1,9 +1,6 @@
-<h2>Reviews del Momento</h2>
-
 <div class="row">
   <div class="col">
-    <hr />
-
+    <h2 class="text-center">Reviews de {{ movie.title }}</h2>
     <div
       *ngIf="reviews.length === 0; else table"
       class="alert alert-warning text-center"
@@ -38,13 +35,100 @@
             </td>
 
             <td>
-              <button type="button" class="btn btn-success btn-sm">
+              <button
+                type="button"
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                [attr.data-bs-target]="'#staticBackdrop' + i"
+              >
                 <!-- <a
                   [routerLink]="['/movies/by', movie.id]"
                   style="text-decoration: none; color: inherit"
                   >Info</a
                 > -->Más Detalle
               </button>
+              <!-- Modal -->
+              <div
+                class="modal fade modal-lg"
+                id="staticBackdrop{{ i }}"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="col">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                          {{ movie.title }}
+                        </h1>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+
+                    <div class="modal-body">
+                      <h6 class="bold">
+                        Creada por {{ review.author }} el
+                        {{ review.created_at | date : "dd MMMM, yyyy" }}
+                      </h6>
+                      <div class="col">
+                        <img
+                          *ngIf="
+                            review.author_details.avatar_path?.includes(
+                              '/https://secure.gravatar.com'
+                            )
+                          "
+                          class="img-fluid m-3"
+                          style="width: 200px"
+                          [src]="review.author_details.avatar_path | slice : 1"
+                        />
+
+                        <img
+                          *ngIf="
+                            review.author_details.avatar_path?.lastIndexOf(
+                              '/'
+                            ) === 0
+                          "
+                          class="img-fluid m-3"
+                          style="width: 200px"
+                          [src]="
+                            'https://image.tmdb.org/t/p/w500/' +
+                            review.author_details.avatar_path
+                          "
+                        />
+
+                        <img
+                          *ngIf="review.author_details.avatar_path == null"
+                          class="img-fluid m-3"
+                          style="width: 200px"
+                          src="../../../../assets/no-dis.avif"
+                        />
+                      </div>
+
+                      <small>{{ review.content }}</small>
+                    </div>
+
+                    <div class="modal-footer">
+                      <div class="col text-center">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -52,3 +136,15 @@
     </ng-template>
   </div>
 </div>
+
+<script>
+  $("#exampleModal").on("show.bs.modal", function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var recipient = button.data("whatever"); // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this);
+    modal.find(".modal-title").text("New message to " + recipient);
+    modal.find(".modal-body input").val(recipient);
+  });
+</script>
