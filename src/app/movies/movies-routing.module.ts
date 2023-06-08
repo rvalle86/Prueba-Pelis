@@ -6,6 +6,7 @@ import { ByGeneralPageComponent } from './pages/by-general-page/by-general-page.
 import { ByIdComponent } from './pages/by-id/by-id.component';
 import { ByCastComponent } from './pages/by-cast/by-cast.component';
 import { ByReviewsComponent } from './pages/by-reviews/by-reviews.component';
+import { ByVideosComponent } from './pages/by-videos/by-videos.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'by/:id/reviews',
     component: ByReviewsComponent,
+  },
+  {
+    path: 'by/:id/videos',
+    component: ByVideosComponent,
   },
   // {
   //   path: 'by/cast:id',

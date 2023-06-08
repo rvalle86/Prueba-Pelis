@@ -20,11 +20,11 @@ export class ByReviewsComponent implements OnInit {
     private MoviesService: MoviesService
   ) {}
   ngOnInit(): void {
-    this.searchByrReview();
+    this.searchByReview();
     this.searchByMovie();
   }
 
-  searchByrReview(): void {
+  searchByReview(): void {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.MoviesService.searchReviewByCode(id)))
       .subscribe((review) => {

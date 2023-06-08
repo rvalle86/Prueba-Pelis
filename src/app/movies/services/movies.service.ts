@@ -6,6 +6,7 @@ import { ImagesResponse } from '../interfaces/movie-images.interface';
 import { MovieResponse } from '../interfaces/by-id.interface';
 import { CastResponse } from '../interfaces/movie-cast.interface';
 import { ReviewsResponse } from '../interfaces/movie-reviews.interface';
+import { VideosResponse } from '../interfaces/movie-videos.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -62,6 +63,14 @@ export class MoviesService {
     const params = new HttpParams().set('api_key', this.apiKey);
 
     return this.http.get<ReviewsResponse>(url, { params: params });
+  }
+
+  searchVideosByCode(id: number): Observable<VideosResponse> {
+    const url = `${this.apiUrl}/${id}/videos`;
+
+    const params = new HttpParams().set('api_key', this.apiKey);
+
+    return this.http.get<VideosResponse>(url, { params: params });
   }
 
   searchMovies(): Observable<MoviesResponse> {

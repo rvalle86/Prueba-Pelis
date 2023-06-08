@@ -9,7 +9,13 @@ import { MovieResponse } from '../../interfaces/by-id.interface';
 @Component({
   selector: 'app-by-id',
   templateUrl: './by-id.component.html',
-  styles: [],
+  styles: [
+    `
+      div button {
+        display: inline-block;
+      }
+    `,
+  ],
 })
 export class ByIdComponent implements OnInit {
   public movies: Movie[] = [];

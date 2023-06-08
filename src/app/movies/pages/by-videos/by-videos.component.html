@@ -1,0 +1,37 @@
+<h2 class="text-center">Videos</h2>
+<div ngfor class="card">
+  <div class="row">
+    <div
+      *ngFor="let video of videos.slice(0, 10) | keyvalue; let i = index"
+      class="col-4 h-100 text-center"
+    >
+      <div class="ratio ratio-16x9">
+        <!-- <youtube-player videoId="{{ videos[i].key }}"> </youtube-player> -->
+
+        <!-- <youtube-player
+          videoId="2sTtCl4a8t8"
+          suggestedQuality="highres"
+          [height]="100"
+          [width]="200"
+        >
+        </youtube-player> -->
+
+        <iframe
+          class="responsive-iframe"
+          [src]="'https://www.youtube.com/embed/' + videos[i].key | safe"
+          width="500"
+          height="150"
+          frameborder="0"
+          allowfullscreen="true"
+        ></iframe>
+      </div>
+      <div class="card-body">
+        <h6 class="card-text text-center">
+          {{ videos[i].name }}
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <youtube-player videoId="2sTtCl4a8t8"> </youtube-player> -->
