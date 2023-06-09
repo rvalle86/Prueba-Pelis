@@ -1,12 +1,19 @@
-<h4>Películas de Estreno</h4>
+<h4 class="text-center">Películas de Estreno</h4>
 <hr />
-
-<ul class="list-group">
-  <li
-    routerLink="movies/by-general"
-    routerLinkActive="active"
-    class="list-group-item"
-  >
-    Populares
-  </li>
-</ul>
+<div class="row">
+  <div class="d-grid gap-2" *ngIf="home.isActive === false">
+    <button class="btn btn-success mb-2" (click)="backClicked()">
+      Volver <i class="fa-sharp fa-solid fa-rotate-left fa-lg m-1"></i>
+    </button>
+  </div>
+  <ul class="list-group">
+    <li
+      routerLink="movies/by-general"
+      routerLinkActive="active"
+      class="list-group-item text-center"
+      #home="routerLinkActive"
+    >
+      Populares
+    </li>
+  </ul>
+</div>

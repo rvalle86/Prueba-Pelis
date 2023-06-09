@@ -1,4 +1,4 @@
-<h2>Películas del Momento</h2>
+<h2 class="text-center">Películas del Momento</h2>
 
 <div class="row">
   <div class="col">
@@ -36,13 +36,13 @@
             </td>
 
             <td>
-              <button type="button" class="btn btn-success btn-sm">
-                <a
-                  [routerLink]="['/movies/by', movie.id]"
-                  style="text-decoration: none; color: inherit"
-                  >Info</a
-                >
-              </button>
+              <a
+                [routerLink]="['/movies/by', movie.id]"
+                style="text-decoration: none; color: inherit"
+                ><button type="button" class="btn btn-success btn-sm">
+                  Info
+                </button></a
+              >
             </td>
           </tr>
         </tbody>

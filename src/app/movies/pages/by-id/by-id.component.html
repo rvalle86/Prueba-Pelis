@@ -39,23 +39,25 @@
           </div>
           <div class="container d-inline-flex">
             <div class="gap-2 m-2 text-center">
-              <button class="btn btn-primary" type="button">
-                <a
-                  [routerLink]="['/movies/by', movie.id, 'reviews']"
-                  style="text-decoration: none; color: inherit"
-                  >Reseñas<i class="fa-solid fa-magnifying-glass fa-lg m-2"></i
-                ></a>
-              </button>
+              <a
+                [routerLink]="['/movies/by', movie.id, 'reviews']"
+                style="text-decoration: none; color: inherit"
+              >
+                <button class="btn btn-primary" type="button">
+                  Reseñas<i
+                    class="fa-solid fa-magnifying-glass fa-lg m-2"
+                  ></i></button
+              ></a>
             </div>
 
             <div class="gap-2 m-2 text-center">
-              <button class="btn btn-danger" type="button">
-                <a
-                  [routerLink]="['/movies/by', movie.id, 'videos']"
-                  style="text-decoration: none; color: inherit"
-                  >Videos<i class="fa-brands fa-youtube fa-lg m-2"></i>
-                </a>
-              </button>
+              <a
+                [routerLink]="['/movies/by', movie.id, 'videos']"
+                style="text-decoration: none; color: inherit"
+                ><button class="btn btn-danger" type="button">
+                  Videos<i class="fa-brands fa-youtube fa-lg m-2"></i>
+                </button>
+              </a>
             </div>
           </div>
         </div>
