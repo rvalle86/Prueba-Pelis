@@ -1,0 +1,143 @@
+<div class="container-fluid">
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <h1>Rick and Morthy</h1>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      <h3>Characters</h3>
+    </figcaption>
+    <show-search-box
+      (onDebounce)="searchByName($event)"
+      [initialValue]="initialValue"
+      placeholder="Buscar Personajes"
+    ></show-search-box>
+  </figure>
+  <div
+    *ngIf="this.initialValue; else content"
+    class="alert alert-warning text-center"
+  >
+    No hay Personajes que mostrar
+  </div>
+
+  <ng-template #content>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div
+          class="col-md-6 col-8"
+          *ngFor="let character of characters; let i = index"
+        >
+          <div class="card shadow mb-3" style="max-width: 40rem">
+            <div class="row g-0">
+              <div class="col-md-6 col-12-p-5">
+                <img
+                  [src]="character.image"
+                  class="img-fluid rounded-start"
+                  [alt]="character.name"
+                />
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h4 class="card-title mb-4">{{ character.name }}</h4>
+                  <h6 class="card-text">
+                    Género:
+                    <small class="text-muted">{{ character.gender }}</small>
+                  </h6>
+                  <h6 class="card-text">
+                    Orígen:
+                    <small class="text-muted">
+                      {{ character.origin.name }}</small
+                    >
+                  </h6>
+
+                  <h6 class="card-text">
+                    Especie:
+                    <small class="text-muted">{{ character.species }}</small>
+                  </h6>
+                  <h6 class="card-text">
+                    Estatus:
+                    <small class="text-muted"> {{ character.status }}</small>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav
+      *ngIf="this.initialValue === ''"
+      aria-label="Nav"
+      class="table-responsive"
+    >
+      <ul class="pagination">
+        <!-- <li class="page-item">
+        <a class="page-link">Previous</a>
+      </li> -->
+
+        <li *ngFor="let item of page | iterable">
+          <a [routerLink]="['/show/by-characters', item]" class="page-link"
+            ><i>{{ item }}</i></a
+          >
+        </li>
+        <!-- <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li> -->
+      </ul>
+    </nav>
+    <!-- <nav aria-label="Nav">
+    <ul class="pagination justify-content-center">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li *ngFor="let character of characters; let i = index" class="page-item">
+        <a [routerLink]="['/show/by-characters', i + 1]" class="page-link"
+          ><i>{{ i + 1 }}</i></a
+        >
+      </li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav> -->
+    <!--
+  <div class="card mb-3">
+    <div
+      class="row g-0 mb-4"
+      *ngFor="let character of characters; let i = index"
+    >
+      <div class="col-3">
+        <img
+          [src]="character.image"
+          class="img-fluid rounded-start"
+          [alt]="character.name"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{ character.name }}</h3>
+          <h5 class="card-text fw-bold">Género: {{ character.gender }}</h5>
+          <h5 class="card-text">
+            <small class="text-muted"
+              >Orígen: {{ character.origin.name }}</small
+            >
+          </h5>
+
+          <h5 class="card-text">
+            <small class="text-muted">Especie: {{ character.species }}</small>
+          </h5>
+          <h5 class="card-text">
+            <small class="text-muted">Estatus: {{ character.status }}</small>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav aria-label="Nav">
+    <ul class="pagination justify-content-center">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li *ngFor="let character of characters; let i = index" class="page-item">
+        <a class="page-link" href="#">{{ i }}</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+</div> -->
+  </ng-template>
+</div>

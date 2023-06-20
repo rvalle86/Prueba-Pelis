@@ -8,12 +8,19 @@ import { SharedModule } from './shared/shared.module';
 
 import localeEsHN from '@angular/common/locales/es-HN';
 import { registerLocaleData } from '@angular/common';
+import { ShowModule } from './show/show.module';
 
 registerLocaleData(localeEsHN);
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, SharedModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    SharedModule,
+    ShowModule,
+  ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-HN' }],
   bootstrap: [AppComponent],
 })

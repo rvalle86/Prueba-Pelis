@@ -1,7 +1,10 @@
-<h4 class="text-center">Películas de Estreno</h4>
+<h4 class="text-center">Pelis y Más</h4>
 <hr />
 <div class="row">
-  <div class="d-grid gap-2" *ngIf="home.isActive === false">
+  <div
+    class="d-grid gap-2"
+    *ngIf="movies.isActive === false && show.isActive === false"
+  >
     <button class="btn btn-success mb-2" (click)="backClicked()">
       Volver <i class="fa-sharp fa-solid fa-rotate-left fa-lg m-1"></i>
     </button>
@@ -11,9 +14,17 @@
       routerLink="movies/by-general"
       routerLinkActive="active"
       class="list-group-item text-center"
-      #home="routerLinkActive"
+      #movies="routerLinkActive"
     >
-      Populares
+      Películas Populares
+    </li>
+    <li
+      routerLink="show/by-characters/1"
+      routerLinkActive="active"
+      class="list-group-item text-center"
+      #show="routerLinkActive"
+    >
+      Rick and Morthy
     </li>
   </ul>
 </div>
